@@ -1,6 +1,14 @@
+import { Routes, Route } from "react-router-dom";
+import AppLayout from "./layouts/AppLayout";
+import Home from "./pages/Home";
+
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
-export default App
+    <Routes>
+      <Route path="/" element={<AppLayout />}>
+        <Route index element={<Home />} />
+      </Route>
+    </Routes>
+  );
+};
+export default App;
