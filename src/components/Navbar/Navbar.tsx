@@ -1,7 +1,11 @@
-import { Box, Button } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import Button from "../Button/Button";
+import { HashLink } from "react-router-hash-link";
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
+  const { pathname } = useLocation();
   return (
     <Box
       h={70}
@@ -9,7 +13,7 @@ const Navbar = () => {
       justifyContent={"space-between"}
       alignItems={"center"}
     >
-      <Box fontWeight={"bold"}>
+      <Box fontWeight={"600"} fontFamily={"ClashDisplay-Variable"}>
         <Link to={"/"}>Data Shield</Link>
       </Box>
       <Box
@@ -21,35 +25,17 @@ const Navbar = () => {
         fontWeight={500}
       >
         <Box as={"li"} _hover={{ color: "green.primary" }}>
-          <Link to={"/"}>Accueil</Link>
+          <HashLink to={"/#services"}>Services</HashLink>
         </Box>
         <Box as={"li"} _hover={{ color: "green.primary" }}>
-          <Link to={"#offres"}>Offres</Link>
-        </Box>
-        <Box as={"li"} _hover={{ color: "green.primary" }}>
-          <Link to={"#temoignage"}>Témoignages</Link>
+          <HashLink to={"/#inscription"}>Inscription</HashLink>
         </Box>
       </Box>
-      <Button
-        borderRadius={"999rem"}
-        size={"sm"}
-        paddingInline={7}
-        paddingBlock={6}
-        bgColor={"green.primary"}
-        border={"1px solid"}
-        borderColor={"green.primary"}
-        fontWeight={500}
-        _hover={{
-          bgColor: "inherit",
-          color: "green.primary",
-        }}
-        _active={{
-          bgColor: "#4edc4e",
-          color: "black",
-        }}
-      >
-        Se connecter
-      </Button>
+      {pathname !== "/dashboard" && (
+        <Button>
+          <Link to={"/dashboard"}>Se connecter</Link>
+        </Button>
+      )}
     </Box>
   );
 };
