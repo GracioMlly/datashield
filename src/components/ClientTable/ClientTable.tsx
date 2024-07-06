@@ -28,17 +28,15 @@ const ClientTable = ({ clients }: clientsTableProps) => {
     <TableContainer>
       <Table variant="striped">
         <TableCaption>Table des clients</TableCaption>
-        <Thead>
+        <Thead bgColor={"#edf2f6"}>
           <Tr>
-            <Th>Nom de la société</Th>
-            <Th>Adresse</Th>
-            <Th>Email</Th>
-            <Th>Activité</Th>
+            <Th color={"black"}>Nom de la société</Th>
+            <Th color={"black"}>Adresse</Th>
+            <Th color={"black"}>Email</Th>
+            <Th color={"black"}>Activité</Th>
           </Tr>
         </Thead>
-        <Tbody>
-          {rows}
-        </Tbody>
+        <Tbody>{rows}</Tbody>
       </Table>
     </TableContainer>
   );
